@@ -15,6 +15,10 @@ bot.on('error', (err) => {
 
 bot.on('message', (payload, reply) => {
     let text = 'you said: ' + payload.message.text
+        // simple reply
+    if (payload.message.text.toLowerCase() == 'how are you') {
+        text = "I'm fine :)";
+    }
 
     bot.getProfile(payload.sender.id, (err, profile) => {
         if (err) throw err
