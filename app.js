@@ -15,6 +15,9 @@ bot.on('error', (err) => {
 
 bot.on('message', (payload, reply) => {
     console.log('payload: ', payload);
+    if (payload.message.attachments) {
+        console.log('attachment:', payload.message.attachments[0]);
+    }
 
     let text = 'you said: ' + payload.message.text
         // simple reply
@@ -23,6 +26,8 @@ bot.on('message', (payload, reply) => {
     }
 
     bot.getProfile(payload.sender.id, (err, profile) => {
+        console.log('profile: ', profile);
+
         if (err) throw err
 
         reply({ text }, (err) => {
