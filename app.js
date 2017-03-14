@@ -28,12 +28,15 @@ bot.on('message', (payload, reply) => {
     bot.getProfile(payload.sender.id, (err, profile) => {
         console.log('profile: ', profile);
 
-        if (err) throw err
+        if (err) {
+            console.log('err: ', err)
+                // throw err
+        }
 
         reply({ text }, (err) => {
             if (err) {
                 console.log('err:', err);
-                throw err;
+                // throw err;
             }
 
             console.log(`Echoed back to ${profile.first_name} ${profile.last_name}: ${text}`)
