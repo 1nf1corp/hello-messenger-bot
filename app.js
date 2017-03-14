@@ -14,9 +14,11 @@ bot.on('error', (err) => {
 })
 
 bot.on('message', (payload, reply) => {
+    console.log('payload: ', payload);
+
     let text = 'you said: ' + payload.message.text
         // simple reply
-    if (payload.message.text.toLowerCase() == 'how are you') {
+    if (payload.message.text && payload.message.text.toLowerCase() == 'how are you') {
         text = "I'm fine :)";
     }
 
